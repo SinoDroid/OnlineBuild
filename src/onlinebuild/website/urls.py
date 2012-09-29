@@ -2,10 +2,10 @@
 #-*- coding: utf-8 -*-
 
 from django.conf.urls.defaults import patterns, url
-from onlinebuild.website.views import index, project, task
 
-urlpatterns = patterns('',
-    url(r'^$', index),
-    url(r'^project/((?P<pid>\d+)/)?$', project),
-    url(r'^task/(?P<tid>\d+)/$', task),
+urlpatterns = patterns('onlinebuild.website.views',
+    url(r'^$', 'project', {'project_id': None}, name = 'index'),
+    url(r'^project/$', 'project', {'project_id': None}, name = 'list'),
+    url(r'^project/((?P<project_id>\d+)/)?$', 'project', name = 'detail'),
+    url(r'^task/(?P<task_id>\d+)/$', 'task'),
 )

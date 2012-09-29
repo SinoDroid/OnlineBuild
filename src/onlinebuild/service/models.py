@@ -11,6 +11,7 @@ class Project(models.Model):
     description = models.CharField(max_length = 200)
     path = models.CharField(max_length = 50)
     commands = models.CharField(max_length = 200)
+    last_modify = models.DateTimeField(auto_now = True)
     
     def __unicode__(self):
         return self.name
